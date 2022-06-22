@@ -1,16 +1,27 @@
-import "../css/componentes.css";
-// import webpackLogo from "../assets/img/webpack-logo.png";
+// Esta constante referencia al div donde se encuentran mi lista completa de tareas
+const divTodoHtml = document.querySelector(".todo-list");
 
-export const saludar = (nombre) => {
-  console.log("Se ejecuta la función saludar");
+export const crearTareaEnHtml = (tarea) => {
+  //Esta constante almacena los datos interpolados que vienen de mi clase Todo e inserta
+  //cada dato dentro de la estructura HTML de una tarea nueva
+  const tareaHtml = `
+  <li class="${tarea.completado}" data-id="${tarea.id}">
+    <div class="view">
+      <input class="toggle" type="checkbox" checked>
+      <label>${tarea.tarea}</label>
+      <button class="destroy"></button>
+    </div>
+    <input class="edit" value="Create a TodoMVC template">
+  </li>`;
 
-  const titulo = document.createElement("H1");
-  titulo.innerText = `Hola, ${nombre}`;
+  //Por el momento creamos un div para cada tarea, como una forma fácil de referenciar
+  //el DOM para luego poder modificar los elementos HTML dentro de ese div y generar así cada tareaHtml
+  const divTarea = document.createElement("div");
+  divTarea.innerHTML = tareaHtml;
 
-  document.body.append(titulo);
+  //De esta forma insertamos la tarea nueva en la lista de tareas que definimos al inicio
+  //Luego esta funcionalidad estará separada en otra función
+  divTodoHtml.append(divTarea);
 
-  //img
-  // const img = document.createElement("img");
-  // img.src = webpackLogo;
-  // document.body.append(img);
+  return divTarea;
 };
