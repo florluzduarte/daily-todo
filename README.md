@@ -1,6 +1,6 @@
-# Webpack starter
+# Daily Todo App
 
-Este es el proyecto inicial para crear aplicaciones utilizando Webpack.
+Lista de tareas que puedo usar para mis Dailies.
 
 ### Notas:
 
