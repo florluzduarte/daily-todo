@@ -1,5 +1,5 @@
 // Esta constante referencia al div donde se encuentran mi lista completa de tareas
-import { Todo } from "../classes/index.class.js";
+import { Todo, TodoList } from "../classes/index.class.js";
 import { listaDeTareas } from "../index.js";
 
 //Referencias al HTML
@@ -35,6 +35,7 @@ export const crearTareaEnHtml = (tarea) => {
 
 // Eventos
 
+// Evento input de nuevas tareas
 txtInput.addEventListener("keyup", (event) => {
   //Este if evalúa si al escribir en el input, la última tecla presionada es el enter
   // keyCode: 13 equiavale al enter. Cada tecla tiene su keycode, y esa info se guarda en el evento
@@ -46,5 +47,29 @@ txtInput.addEventListener("keyup", (event) => {
     console.log(listaDeTareas);
     //Igualar el value a un string vacío equivale a borrar lo que escribimos en el input al dar enter
     txtInput.value = "";
+  }
+});
+
+// Evento ckeckbox completo / incompleto
+
+divTodoHtml.addEventListener("click", (event) => {
+  //Esto determina si el lugar donde estoy clickeando es de tipo input (checkbox), button (cross) o label (tarea)
+  const tipoDeElemento = event.target.localName;
+  // Esta constante selecciona todo el elemento todo, es decir todo el <li> que se genera cada vez
+  // que escribimos una nueva tarea en la app
+  const todoElemento = event.target.parentElement.parentElement;
+  // Esta constante almacena el ID que tiene cada tarea. Estos datos los extrae del <li> que se genera
+  // cada vez que escribimos una nueva tarea en la app, que además hace referencia a la clase Todo.
+  // Lo nuevo de esto es que lo selecciona por un atributo de HTML, en este caso el "data-id".
+  const todoId = todoElemento.getAttribute("data-id");
+
+  if (tipoDeElemento.includes("input")) {
+    listaDeTareas.marcarCompleto(todoId);
+    todoElemento.classList.toggle("completed");
+  }
+
+  if (tipoDeElemento.includes("button")) {
+    listaDeTareas.eliminarTodo(todoId);
+    todoElemento.remove(todoId);
   }
 });

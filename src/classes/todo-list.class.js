@@ -11,9 +11,20 @@ export class TodoList {
     this.todos.push(tarea);
   }
 
-  eliminarTodo(id) {}
+  eliminarTodo(id) {
+    const tareaSeleccionada = this.todos.find((todo) => id == todo.id);
+    const index = this.todos.indexOf(tareaSeleccionada);
+    this.todos.splice(index, 1);
+    console.log(this.todos);
+  }
 
-  marcarCompleto(id) {}
+  marcarCompleto(id) {
+    this.todos.find((todo) => {
+      if (todo.id == id) {
+        todo.completado = !todo.completado;
+      }
+    });
+  }
 
   eliminarCompletos() {}
 }
