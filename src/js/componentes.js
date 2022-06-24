@@ -5,6 +5,7 @@ import { listaDeTareas } from "../index.js";
 //Referencias al HTML
 const divTodoHtml = document.querySelector(".todo-list");
 const txtInput = document.querySelector(".new-todo");
+const btnBorrarCompletos = document.querySelector(".clear-completed");
 
 export const crearTareaEnHtml = (tarea) => {
   //Esta constante almacena los datos interpolados que vienen de mi clase Todo e inserta
@@ -44,7 +45,6 @@ txtInput.addEventListener("keyup", (event) => {
     const tarea = new Todo(txtInput.value);
     listaDeTareas.nuevoTodo(tarea);
     crearTareaEnHtml(tarea);
-    console.log(listaDeTareas);
     //Igualar el value a un string vacío equivale a borrar lo que escribimos en el input al dar enter
     txtInput.value = "";
   }
@@ -71,5 +71,17 @@ divTodoHtml.addEventListener("click", (event) => {
   if (tipoDeElemento.includes("button")) {
     listaDeTareas.eliminarTodo(todoId);
     todoElemento.remove(todoId);
+  }
+});
+
+// Evento botón borrar completos
+
+btnBorrarCompletos.addEventListener("click", () => {
+  listaDeTareas.eliminarCompletos();
+  for (let i = divTodoHtml.children.length - 1; i >= 0; i--) {
+    const elemento = divTodoHtml.children[i];
+    if (elemento.classList.contains("completed")) {
+      divTodoHtml.removeChild(elemento);
+    }
   }
 });

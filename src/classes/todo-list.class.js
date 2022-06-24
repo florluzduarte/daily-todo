@@ -1,3 +1,5 @@
+import { listaDeTareas } from "..";
+
 export class TodoList {
   // Este constructor inicializa un array con todas nuestras tareas
   constructor() {
@@ -15,7 +17,6 @@ export class TodoList {
     const tareaSeleccionada = this.todos.find((todo) => id == todo.id);
     const index = this.todos.indexOf(tareaSeleccionada);
     this.todos.splice(index, 1);
-    console.log(this.todos);
   }
 
   marcarCompleto(id) {
@@ -26,5 +27,13 @@ export class TodoList {
     });
   }
 
-  eliminarCompletos() {}
+  eliminarCompletos() {
+    this.todos = this.todos.filter((todo) => {
+      !todo.completado;
+    });
+  }
+
+  cargarLocalStorage() {}
+
+  guardarLocalStorage() {}
 }
