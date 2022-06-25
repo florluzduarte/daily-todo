@@ -56,7 +56,7 @@ module.exports = {
   },
   plugins: [
     new htmlWebpackPlugin({
-      title: "Mi webpack app",
+      title: "To-Do app",
       filename: "index.html",
       template: "./src/index.html",
     }),
