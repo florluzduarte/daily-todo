@@ -1,4 +1,4 @@
-import { listaDeTareas } from "..";
+import { Todo } from "./todo.class.js";
 
 export class TodoList {
   // Este constructor inicializa un array con todas nuestras tareas
@@ -44,5 +44,7 @@ export class TodoList {
     this.todos = localStorage.getItem("todo")
       ? (this.todos = JSON.parse(localStorage.getItem("todo")))
       : [];
+
+    this.todos = this.todos.map((obj) => Todo.reconstruirClase(obj));
   }
 }

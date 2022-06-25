@@ -6,6 +6,8 @@ import { listaDeTareas } from "../index.js";
 const divTodoHtml = document.querySelector(".todo-list");
 const txtInput = document.querySelector(".new-todo");
 const btnBorrarCompletos = document.querySelector(".clear-completed");
+const ulFiltros = document.querySelector(".filters");
+const anchorFiltro = document.querySelectorAll(".filtro");
 
 export const crearTareaEnHtml = (tarea) => {
   //Esta constante almacena los datos interpolados que vienen de mi clase Todo e inserta
@@ -82,6 +84,40 @@ btnBorrarCompletos.addEventListener("click", () => {
     const elemento = divTodoHtml.children[i];
     if (elemento.classList.contains("completed")) {
       divTodoHtml.removeChild(elemento);
+    }
+  }
+});
+
+// Eventos para filtros
+
+ulFiltros.addEventListener("click", (event) => {
+  const textoSeleccionado = event.target.text;
+  if (!textoSeleccionado) {
+    return;
+  }
+
+  anchorFiltro.forEach((elem) => {
+    elem.classList.remove("selected");
+  });
+
+  event.target.classList.add("selected");
+
+  for (const elemento of divTodoHtml.children) {
+    elemento.classList.remove("hidden");
+    const completo = elemento.classList.contains("completed");
+
+    switch (textoSeleccionado) {
+      case "Pendientes":
+        if (completo) {
+          elemento.classList.add("hidden");
+        }
+        break;
+
+      case "Completos":
+        if (!completo) {
+          elemento.classList.add("hidden");
+        }
+        break;
     }
   }
 });
