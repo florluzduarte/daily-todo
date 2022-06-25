@@ -23,8 +23,8 @@ button {
 body {
 	font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	line-height: 1.4em;
-	background: #f5f5f5;
-	color: #111111;
+	background: #21202e;
+	color: #f2ecff;
 	min-width: 230px;
 	max-width: 550px;
 	margin: 0 auto;
@@ -42,7 +42,7 @@ body {
 }
 
 .todoapp {
-	background: #fff;
+	background: #3b334b;
 	margin: 130px 0 40px 0;
 	position: relative;
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
@@ -52,29 +52,29 @@ body {
 .todoapp input::-webkit-input-placeholder {
 	font-style: italic;
 	font-weight: 300;
-	color: rgba(0, 0, 0, 0.4);
+	color: #d481dd;
 }
 
 .todoapp input::-moz-placeholder {
 	font-style: italic;
 	font-weight: 300;
-	color: rgba(0, 0, 0, 0.4);
+	color: #d481dd;
 }
 
 .todoapp input::input-placeholder {
 	font-style: italic;
 	font-weight: 300;
-	color: rgba(0, 0, 0, 0.4);
+	color: #d481dd;
 }
 
 .todoapp h1 {
 	position: absolute;
-	top: -140px;
+	top: -120px;
 	width: 100%;
-	font-size: 80px;
+	font-size: 60px;
 	font-weight: 200;
 	text-align: center;
-	color: #b83f45;
+	color: #61fecc;
 	-webkit-text-rendering: optimizeLegibility;
 	-moz-text-rendering: optimizeLegibility;
 	text-rendering: optimizeLegibility;
@@ -108,7 +108,7 @@ body {
 .main {
 	position: relative;
 	z-index: 2;
-	border-top: 1px solid #e6e6e6;
+	border-top: 1px solid #21202e;
 }
 
 .toggle-all {
@@ -135,12 +135,12 @@ body {
 .toggle-all + label:before {
 	content: '❯';
 	font-size: 22px;
-	color: #e6e6e6;
+	color: #d481dd;
 	padding: 10px 27px 10px 27px;
 }
 
 .toggle-all:checked + label:before {
-	color: #737373;
+	color: #d481dd;
 }
 
 .todo-list {
@@ -152,7 +152,7 @@ body {
 .todo-list li {
 	position: relative;
 	font-size: 24px;
-	border-bottom: 1px solid #ededed;
+	border-bottom: 1px solid #21202e;
 }
 
 .todo-list li:last-child {
@@ -214,7 +214,7 @@ body {
 	line-height: 1.2;
 	transition: color 0.4s;
 	font-weight: 400;
-	color: #4d4d4d;
+	color: #cdcdcd;
 }
 
 .todo-list li.completed label {
@@ -232,7 +232,7 @@ body {
 	height: 40px;
 	margin: auto 0;
 	font-size: 30px;
-	color: #cc9a9a;
+	color: #d481dd;
 	margin-bottom: 11px;
 	transition: color 0.2s ease-out;
 }
@@ -262,7 +262,7 @@ body {
 	height: 20px;
 	text-align: center;
 	font-size: 15px;
-	border-top: 1px solid #e6e6e6;
+	border-top: 1px solid #21202e;
 }
 
 .footer:before {
@@ -274,9 +274,9 @@ body {
 	height: 50px;
 	overflow: hidden;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
-	            0 8px 0 -3px #f6f6f6,
+	            0 8px 0 -3px #3b334b,
 	            0 9px 1px -3px rgba(0, 0, 0, 0.2),
-	            0 16px 0 -6px #f6f6f6,
+	            0 16px 0 -6px #3b334b,
 	            0 17px 2px -6px rgba(0, 0, 0, 0.2);
 }
 
@@ -312,11 +312,11 @@ body {
 }
 
 .filters li a:hover {
-	border-color: rgba(175, 47, 47, 0.1);
+	border-color: #61fecc;
 }
 
 .filters li a.selected {
-	border-color: rgba(175, 47, 47, 0.2);
+	border-color: #52c5a1;
 }
 
 .clear-completed,
@@ -330,13 +330,13 @@ html .clear-completed:active {
 
 .clear-completed:hover {
 	text-decoration: underline;
+	color: #61fecc;
 }
 
 .info {
 	margin: 65px auto 0;
-	color: #4d4d4d;
+	color: #f7f7f7;
 	font-size: 11px;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 	text-align: center;
 }
 
@@ -352,6 +352,7 @@ html .clear-completed:active {
 
 .info a:hover {
 	text-decoration: underline;
+	color: #61fecc;
 }
 
 /*
