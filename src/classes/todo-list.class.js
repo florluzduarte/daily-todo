@@ -12,7 +12,6 @@ export class TodoList {
   nuevoTodo(tarea) {
     this.todos.push(tarea);
     this.guardarLocalStorage();
-    // this.obtenerCantPendientes();
   }
 
   eliminarTodo(id) {
@@ -54,7 +53,6 @@ export class TodoList {
     const lista = this.todos;
     const pendientes = lista.filter((tarea) => tarea.completado == false);
     const cantPendientes = pendientes.length;
-    console.log(cantPendientes);
     return cantPendientes;
   }
 }
