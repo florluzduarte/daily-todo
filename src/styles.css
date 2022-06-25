@@ -187,6 +187,7 @@ body {
 	border: none; /* Mobile Safari */
 	-webkit-appearance: none;
 	appearance: none;
+	cursor: pointer;
 }
 
 .todo-list li .toggle {
@@ -239,10 +240,12 @@ body {
 
 .todo-list li .destroy:hover {
 	color: #af5b5e;
+	cursor: pointer;
 }
 
 .todo-list li .destroy:after {
 	content: '×';
+	cursor: pointer;
 }
 
 .todo-list li:hover .destroy {
