@@ -7,16 +7,24 @@ Este ejercicio forma parte del curso "JavaScript moderno: Guía para dominar el 
 
 Como el objetivo del ejercicio es practicar lo aprendido sobre JS, utilicé un template de base para el HTML y CSS, que fue creado por Sindre Sorhus. De todas formas, realicé modificaciones en este template para ajustarlo a mis necesidades y para customizar el estilo a mi gusto.
 
-### Notas:
+## Notas:
 
-ecuerden reconstruír los módulos de Node con
+### Link a la app 👇
+
+https://florluzduarte.github.io/daily-todo/
+
+### Recordatorios para trabajar en el código 🚀
+
+Toca reconstruír los módulos de Node para que la app funcione. Esto se logra con:
 
 ```
 npm install
 ```
 
-y reconstruír el build con:
+Para reconstruír el build usar:
 
 ```
 npm run build
 ```
+
+💛 **Gracias por visitar este proyecto** 💛
