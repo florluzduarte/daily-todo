@@ -3,7 +3,6 @@ import { Todo } from "./todo.class.js";
 export class TodoList {
   // Este constructor inicializa un array con todas nuestras tareas
   constructor() {
-    // this.todos = [];
     this.cargarLocalStorage();
   }
 
@@ -13,6 +12,7 @@ export class TodoList {
   nuevoTodo(tarea) {
     this.todos.push(tarea);
     this.guardarLocalStorage();
+    // this.obtenerCantPendientes();
   }
 
   eliminarTodo(id) {
@@ -38,6 +38,7 @@ export class TodoList {
 
   guardarLocalStorage() {
     localStorage.setItem("todo", JSON.stringify(this.todos));
+    this.obtenerCantPendientes();
   }
 
   cargarLocalStorage() {
@@ -46,5 +47,14 @@ export class TodoList {
       : [];
 
     this.todos = this.todos.map((obj) => Todo.reconstruirClase(obj));
+    this.obtenerCantPendientes();
+  }
+
+  obtenerCantPendientes() {
+    const lista = this.todos;
+    const pendientes = lista.filter((tarea) => tarea.completado == false);
+    const cantPendientes = pendientes.length;
+    console.log(cantPendientes);
+    return cantPendientes;
   }
 }

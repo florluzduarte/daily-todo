@@ -1,5 +1,5 @@
 // Esta constante referencia al div donde se encuentran mi lista completa de tareas
-import { Todo, TodoList } from "../classes/index.class.js";
+import { Todo } from "../classes/index.class.js";
 import { listaDeTareas } from "../index.js";
 
 //Referencias al HTML
@@ -8,6 +8,7 @@ const txtInput = document.querySelector(".new-todo");
 const btnBorrarCompletos = document.querySelector(".clear-completed");
 const ulFiltros = document.querySelector(".filters");
 const anchorFiltro = document.querySelectorAll(".filtro");
+const contadorPendientes = document.querySelector(".todo-count").childNodes[0];
 
 export const crearTareaEnHtml = (tarea) => {
   //Esta constante almacena los datos interpolados que vienen de mi clase Todo e inserta
@@ -50,6 +51,7 @@ txtInput.addEventListener("keyup", (event) => {
     //Igualar el value a un string vacío equivale a borrar lo que escribimos en el input al dar enter
     txtInput.value = "";
   }
+  contadorPendientes.innerText = listaDeTareas.obtenerCantPendientes();
 });
 
 // Evento ckeckbox completo / incompleto
@@ -74,6 +76,7 @@ divTodoHtml.addEventListener("click", (event) => {
     listaDeTareas.eliminarTodo(todoId);
     todoElemento.remove(todoId);
   }
+  contadorPendientes.innerText = listaDeTareas.obtenerCantPendientes();
 });
 
 // Evento botón borrar completos
@@ -95,6 +98,7 @@ ulFiltros.addEventListener("click", (event) => {
   if (!textoSeleccionado) {
     return;
   }
+  console.log(contadorPendientes);
 
   anchorFiltro.forEach((elem) => {
     elem.classList.remove("selected");
@@ -120,4 +124,8 @@ ulFiltros.addEventListener("click", (event) => {
         break;
     }
   }
+});
+
+window.addEventListener("load", () => {
+  contadorPendientes.innerText = listaDeTareas.obtenerCantPendientes();
 });
